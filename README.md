@@ -40,19 +40,21 @@ Where:
 - `TOTAL` is the total number of shards
 
 ### Examples
+Let's say you have a very large list of domains and you want to do recon on each domain. Using a single machine, this could take a very long time. However, you can split the workload across multiple machines:
+
 - Machine number 1 would run:
 ```bash
-curl https://example.com/large_file.txt | shardz 1/3
+curl https://example.com/datasets/large_domain_list.txt | shardz 1/3 | httpx -title -ip -tech-detect -json -o shard-1.json
 ```
 
 - Machine number 2 would run:
 ```bash
-curl https://example.com/large_file.txt | shardz 2/3
+curl https://example.com/datasets/large_domain_list.txt | shardz 2/3 | httpx -title -ip -tech-detect -json -o shard-2.json
 ```
 
 - Machine number 3 would run:
 ```bash
-curl https://example.com/large_file.txt | shardz 3/3
+curl https://example.com/datasets/large_domain_list.txt | shardz 3/3 | httpx -title -ip -tech-detect -json -o shard-3.json
 ```
 
 ## How It Works
