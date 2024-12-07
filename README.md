@@ -66,6 +66,23 @@ Shardz uses a modulo operation to determine which lines should be processed by e
 
 This ensures an even distribution of the workload across all shards.
 
+## Simplicity
+
+For what its worth, the same functionality of this tool can be done with a bash function in your `.bashrc`:
+```bash
+shardz() {
+	awk -v n="$1" -v t="$2" 'NR % t == n'
+}
+```
+
+```bash
+cat domains.txt | shardz 1/3 | httpx -title -ip -tech-detect -json -o shard-1.json
+cat domains.txt | shardz 2/3 | httpx -title -ip -tech-detect -json -o shard-2.json
+cat domains.txt | shardz 3/3 | httpx -title -ip -tech-detect -json -o shard-3.json
+```
+
+This was just a fun little project to brush up on my C, and to explore the requirements to having a package added to Linux package manager repositories.
+
 ---
 
 ###### Mirrors: [acid.vegas](https://git.acid.vegas/shardz) • [SuperNETs](https://git.supernets.org/acidvegas/shardz) • [GitHub](https://github.com/acidvegas/shardz) • [GitLab](https://gitlab.com/acidvegas/shardz) • [Codeberg](https://codeberg.org/acidvegas/shardz)
