@@ -11,9 +11,23 @@ Shardz is a lightweight C utility that shards *(splits)* the output of any proce
 - Load balancing input streams
 - Splitting any line-based input for distributed processing
 
-## Building
+## Building & Installation
+
+### Quick Build
 ```bash
 gcc -o shardz shardz.c
+```
+
+### Using Make
+```bash
+# Build only
+make
+
+# Build and install system-wide (requires root/sudo)
+sudo make install
+
+# To uninstall
+sudo make uninstall
 ```
 
 ## Usage
