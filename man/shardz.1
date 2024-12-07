@@ -1,0 +1,35 @@
+.TH SHARDZ 1 "2025" "shardz 1.0.1" "User Commands"
+.SH NAME
+shardz \- shard the output of any process for distributed processing
+.SH SYNOPSIS
+.B some_command
+.RI "|"
+.B shardz
+.I INDEX/TOTAL
+.SH DESCRIPTION
+.B shardz
+is a lightweight utility that shards (splits) the output of any process for distributed processing.
+It allows you to easily distribute workloads across multiple processes or machines by splitting
+input streams into evenly distributed chunks.
+.SH OPTIONS
+.TP
+.I INDEX/TOTAL
+INDEX is the shard number (starting from 1), and TOTAL is the total number of shards.
+.SH EXAMPLES
+Machine number 1 would run:
+.PP
+.nf
+curl https://example.com/large_file.txt | shardz 1/3
+.fi
+.PP
+Machine number 2 would run:
+.PP
+.nf
+curl https://example.com/large_file.txt | shardz 2/3
+.fi
+.SH AUTHOR
+Written by acidvegas <acid.vegas@acid.vegas>
+.SH COPYRIGHT
+Copyright \(co 2025 acidvegas
+.br
+Licensed under the ISC License. 

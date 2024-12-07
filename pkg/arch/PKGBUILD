@@ -1,0 +1,23 @@
+# Maintainer: acidvegas <acid.vegas@acid.vegas>
+
+pkgname=shardz
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="Utility that shards the output of any process for distributed processing"
+arch=('x86_64' 'i686' 'aarch64' 'armv7h')
+url="https://github.com/acidvegas/shardz"
+license=('ISC')
+depends=('glibc')
+source=("$pkgname-$pkgver.tar.gz::$url/archive/v$pkgver.tar.gz")
+sha256sums=('SKIP')
+
+build() {
+    cd "$pkgname-$pkgver"
+    make
+}
+
+package() {
+    cd "$pkgname-$pkgver"
+    make DESTDIR="$pkgdir" PREFIX=/usr install
+    install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+} 

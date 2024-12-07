@@ -1,0 +1,7 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+bindir=${exec_prefix}/bin
+
+Name: shardz
+Description: Utility that shards the output of any process for distributed processing
+Version: 1.0.1

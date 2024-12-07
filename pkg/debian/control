@@ -1,0 +1,16 @@
+Source: shardz
+Section: utils
+Priority: optional
+Maintainer: acidvegas <acid.vegas@acid.vegas>
+Build-Depends: debhelper-compat (= 13), gcc, make
+Standards-Version: 4.5.1
+Homepage: https://github.com/acidvegas/shardz
+
+Package: shardz
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Utility that shards process output for distributed processing
+ Shardz is a lightweight C utility that shards (splits) the output of any
+ process for distributed processing. It allows you to easily distribute
+ workloads across multiple processes or machines by splitting input streams
+ into evenly distributed chunks. 
